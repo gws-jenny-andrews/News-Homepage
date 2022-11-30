@@ -120,10 +120,22 @@ html {
 body {
     background-color: #fff;
     padding: 15px;
-    ;
 }
 
+.overlay {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.7);
+    margin: -15px -15px;
+    visibility: hidden;
+    opacity: 0;
+}
 
+.nav-open .overlay {
+    visibility: visible;
+    opacity: 1;
+}
 
 header {
     display: flex;
@@ -142,7 +154,27 @@ header img {
 }
 
 nav {
-    display: none;
+    visibility: hidden;
+    width: 0;
+    opacity: 0;
+    transition-delay: 0ms;
+    transition-duration: 0ms;
+}
+
+.nav-open nav {
+    display: flex;
+    position: fixed;
+    height: 100vh;
+    width: 330px;
+    background-color: #fff;
+    top: 0;
+    right: 0px;
+    flex-direction: column;
+    visibility: visible;
+    opacity: 1;
+    transition-duration: 500ms;
+    transition-delay: 0ms;
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.3);
 }
 
 nav ul {
@@ -152,7 +184,22 @@ nav ul {
     list-style: none;
 }
 
+.nav-open nav ul {
+    display: flex;
+    gap: 2.4rem;
+    text-decoration: none;
+    list-style: none;
+    flex-direction: column;
+    margin-top: 152px;
+}
+
 nav ul li {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--grayish-blue-600);
+}
+
+.nav-open nav ul li {
     font-size: 1.1rem;
     font-weight: 400;
     color: var(--grayish-blue-600);
@@ -169,20 +216,23 @@ nav ul li:is(:focus, :hover) {
 }
 
 .toggle::after {
-    
     content: "";
     background: url("../images/icon-menu.svg");
     background-repeat: no-repeat;
     background-position: 50% 50%;
     width:50px;
     height:50px;
+    transition: all 500ms;
 }
 
-.toggle.active::after {
+.nav-open .toggle::after {
     content: "";
     background: url("../images/icon-menu-close.svg");
     background-repeat: no-repeat;
     background-position: 50% 50%;
+    z-index: 9999;
+    transition-delay: 500ms;
+    transition: all 500ms;
 }
 
 main {
@@ -370,7 +420,6 @@ footer {
         max-width: 100%;
         width: var(--page-width-large);
         margin: 0px auto;
-
     }
 
     header {
@@ -390,6 +439,9 @@ footer {
     }
     nav {
         display: flex;
+        visibility: visible;
+        width: auto;
+        opacity: 1;
     }
 
     aside {
@@ -432,10 +484,8 @@ footer {
     }
 
     .news-summary {
-
         flex-direction: row;
         gap: 3rem;
-        /* margin-top: 10px; */
         width: 100%;
         grid-column: 1 / -1;
         margin-top: 2.9em;
