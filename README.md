@@ -43,7 +43,7 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 ### Links
 
 - Solution URL: [https://github.com/gws-jenny-andrews/News-Homepage](https://github.com/gws-jenny-andrews/News-Homepage)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [https://astounding-piroshki-2344c6.netlify.app/](https://astounding-piroshki-2344c6.netlify.app/)
 
 ## My process
 
